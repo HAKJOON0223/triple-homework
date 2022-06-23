@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import { fadeIn } from '../common/FadeIn'
 import useEaseOutNumber from '../hooks/useEaseOutNumber'
+import useTimeout from '../hooks/useTimeout'
 
 const MetricInfoWrapper = styled.div`
   display: flex;
@@ -10,6 +11,9 @@ const MetricInfoWrapper = styled.div`
   animation-name: ${fadeIn};
   animation-duration: 0.7s;
   animation-timing-function: linear;
+  &.hide {
+    opacity: 0;
+  }
 `
 
 interface TextWrapperProps {
@@ -33,9 +37,10 @@ function MetricInfo() {
   const travelerRef = useEaseOutNumber(700)
   const reviewRef = useEaseOutNumber(100)
   const scheduleRef = useEaseOutNumber(470)
+  const timeout = useTimeout(900)
 
   return (
-    <MetricInfoWrapper>
+    <MetricInfoWrapper className={timeout ? '' : 'hide'}>
       <TextWrapper>
         <span ref={travelerRef} className="metric-text">
           0

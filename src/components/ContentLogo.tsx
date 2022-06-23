@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { fadeIn } from '../common/FadeIn'
+import useTimeout from '../hooks/useTimeout'
 import { TRIPLE_TROPHY } from '../images'
 
 const ContentLogoWrapper = styled.div`
@@ -8,11 +9,16 @@ const ContentLogoWrapper = styled.div`
   height: 338px;
   position: relative;
   animation: ${fadeIn} 0.7s linear;
+  & {
+    .hide {
+      opacity: 1;
+    }
+  }
 
-  > .content-logo-img {
+  .content-logo-img {
     width: 100%;
   }
-  > .content-text {
+  .content-text {
     width: fit-content;
     position: absolute;
     left: 0;
@@ -24,8 +30,10 @@ const ContentLogoWrapper = styled.div`
 `
 
 function ContentLogo() {
+  const timeout = useTimeout(900)
+
   return (
-    <ContentLogoWrapper>
+    <ContentLogoWrapper className={timeout ? '' : 'hide'}>
       <img
         className="content-logo-img"
         src={TRIPLE_TROPHY}

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { fadeIn } from '../common/FadeIn'
+import useTimeout from '../hooks/useTimeout'
 import { APPSTORE_BADGE, PLAYSTORE_BADGE } from '../images'
 
 const AwardsInfoWrapper = styled.div`
@@ -10,6 +11,9 @@ const AwardsInfoWrapper = styled.div`
   animation-name: ${fadeIn};
   animation-duration: 0.7s;
   animation-timing-function: linear;
+  &.hide {
+    opacity: 0;
+  }
 `
 const AwardsDescription = styled.div`
   width: 100%;
@@ -31,8 +35,10 @@ const AwardsDescription = styled.div`
 `
 
 function AwardsInfo() {
+  const timeout = useTimeout(900)
+
   return (
-    <AwardsInfoWrapper>
+    <AwardsInfoWrapper className={timeout ? '' : 'hide'}>
       <AwardsDescription>
         <img
           className="awards-badge"
