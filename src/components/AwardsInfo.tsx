@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
+import { fadeIn } from '../common/FadeIn'
 import { APPSTORE_BADGE, PLAYSTORE_BADGE } from '../images'
 
 const AwardsInfoWrapper = styled.div`
   width: 100%;
   display: flex;
+  animation-delay: 200ms;
+  animation-name: ${fadeIn};
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
 `
 const AwardsDescription = styled.div`
   width: 100%;

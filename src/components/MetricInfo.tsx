@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
+import { fadeIn } from '../common/FadeIn'
 import useEaseOutNumber from '../hooks/useEaseOutNumber'
 
 const MetricInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  animation-delay: 100ms;
+  animation-name: ${fadeIn};
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
 `
 
 interface TextWrapperProps {

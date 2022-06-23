@@ -1,11 +1,14 @@
 import styled from 'styled-components'
 
+import { fadeIn } from '../common/FadeIn'
 import { TRIPLE_TROPHY } from '../images'
 
 const ContentLogoWrapper = styled.div`
   width: 400px;
   height: 338px;
   position: relative;
+  animation: ${fadeIn} 0.7s linear;
+
   > .content-logo-img {
     width: 100%;
   }
