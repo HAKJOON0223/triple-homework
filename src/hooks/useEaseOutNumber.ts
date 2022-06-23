@@ -40,7 +40,7 @@ function useEaseOutNumber(endNum: number) {
     }, increasePerFrame)
 
     return () => clearInterval(interval)
-  })
+  }, [endNum])
 
   return ref
 }
