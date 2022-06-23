@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import './App.css'
 import AwardsInfo from './components/AwardsInfo'
 import ContentLogo from './components/ContentLogo'
 import MetricInfo from './components/MetricInfo'
