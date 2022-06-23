@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 
+import useEaseOutNumber from '../hooks/useEaseOutNumber'
+
 const MetricInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-const TextWrapper = styled.div`
+interface TextWrapperProps {
+  val?: number
+}
+
+const TextWrapper = styled.div<TextWrapperProps>`
   display: flex;
   margin-bottom: 20px;
   .metric-text {
@@ -18,20 +24,32 @@ const TextWrapper = styled.div`
     color: #3a3a3a;
   }
 `
-
 function MetricInfo() {
+  const travelerRef = useEaseOutNumber(700)
+  const reviewRef = useEaseOutNumber(100)
+  const scheduleRef = useEaseOutNumber(470)
+
   return (
     <MetricInfoWrapper>
       <TextWrapper>
-        <span className="metric-text">700만 명</span>
+        <span ref={travelerRef} className="metric-text">
+          0
+        </span>
+        <span className="metric-text">만 명</span>
         <span className="normal-text">의 여행자</span>
       </TextWrapper>
       <TextWrapper>
-        <span className="metric-text">100만 개</span>
+        <span ref={reviewRef} className="metric-text">
+          0
+        </span>
+        <span className="metric-text">만 개</span>
         <span className="normal-text">의 여행 리뷰</span>
       </TextWrapper>
       <TextWrapper>
-        <span className="metric-text">470만 개</span>
+        <span ref={scheduleRef} className="metric-text">
+          0
+        </span>
+        <span className="metric-text">만 개</span>
         <span className="normal-text">의 여행 일정</span>
       </TextWrapper>
     </MetricInfoWrapper>
