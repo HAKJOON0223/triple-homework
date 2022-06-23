@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import './App.css'
+import AwardsInfo from './components/AwardsInfo'
 import ContentLogo from './components/ContentLogo'
 import MetricInfo from './components/MetricInfo'
 import { GlobalStyle } from './style/global-style'
@@ -18,6 +19,13 @@ const SectionWrapper = styled.section`
   justify-content: space-around;
 `
 
+const RightSideWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 100px;
+`
+
 function App() {
   return (
     <>
@@ -25,7 +33,10 @@ function App() {
       <MainWrapper>
         <SectionWrapper>
           <ContentLogo />
-          <MetricInfo />
+          <RightSideWrapper>
+            <MetricInfo />
+            <AwardsInfo />
+          </RightSideWrapper>
         </SectionWrapper>
       </MainWrapper>
     </>
