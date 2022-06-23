@@ -30,10 +30,10 @@ const ContentLogoWrapper = styled.div`
 `
 
 function ContentLogo() {
-  const timeout = useTimeout(900)
+  const isFadeInEnd = useTimeout(900)
 
   return (
-    <ContentLogoWrapper className={timeout ? '' : 'hide'}>
+    <ContentLogoWrapper className={isFadeInEnd ? '' : 'hide'}>
       <img
         className="content-logo-img"
         src={TRIPLE_TROPHY}

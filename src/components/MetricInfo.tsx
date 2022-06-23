@@ -37,10 +37,10 @@ function MetricInfo() {
   const travelerRef = useEaseOutNumber(700)
   const reviewRef = useEaseOutNumber(100)
   const scheduleRef = useEaseOutNumber(470)
-  const timeout = useTimeout(900)
+  const isFadeInEnd = useTimeout(900)
 
   return (
-    <MetricInfoWrapper className={timeout ? '' : 'hide'}>
+    <MetricInfoWrapper className={isFadeInEnd ? '' : 'hide'}>
       <TextWrapper>
         <span ref={travelerRef} className="metric-text">
           0

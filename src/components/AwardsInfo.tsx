@@ -35,10 +35,10 @@ const AwardsDescription = styled.div`
 `
 
 function AwardsInfo() {
-  const timeout = useTimeout(900)
+  const isFadeInEnd = useTimeout(900)
 
   return (
-    <AwardsInfoWrapper className={timeout ? '' : 'hide'}>
+    <AwardsInfoWrapper className={isFadeInEnd ? '' : 'hide'}>
       <AwardsDescription>
         <img
           className="awards-badge"
