@@ -16,7 +16,7 @@ const ContentLogoWrapper = styled.div`
     right: 0;
     bottom: 40px;
     margin: 0px auto;
-    color: #3a3a3a;
+    color: #3a3a3ab3;
   }
 `
 
