@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import './App.css'
 import ContentLogo from './components/ContentLogo'
+import MetricInfo from './components/MetricInfo'
+import { GlobalStyle } from './style/global-style'
 
 const MainWrapper = styled.main`
   width: 100vw;
@@ -12,15 +14,21 @@ const MainWrapper = styled.main`
 `
 const SectionWrapper = styled.section`
   min-width: 1200px;
+  display: flex;
+  justify-content: space-around;
 `
 
 function App() {
   return (
-    <MainWrapper>
-      <SectionWrapper>
-        <ContentLogo />
-      </SectionWrapper>
-    </MainWrapper>
+    <>
+      <GlobalStyle />
+      <MainWrapper>
+        <SectionWrapper>
+          <ContentLogo />
+          <MetricInfo />
+        </SectionWrapper>
+      </MainWrapper>
+    </>
   )
 }
 
