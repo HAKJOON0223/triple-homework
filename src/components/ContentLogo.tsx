@@ -6,10 +6,10 @@ const ContentLogoWrapper = styled.div`
   width: 400px;
   height: 338px;
   position: relative;
-  > img {
+  > .content-logo-img {
     width: 100%;
   }
-  > span {
+  > .content-text {
     width: fit-content;
     position: absolute;
     left: 0;
@@ -23,8 +23,12 @@ const ContentLogoWrapper = styled.div`
 function ContentLogo() {
   return (
     <ContentLogoWrapper>
-      <img src={TRIPLE_TROPHY} alt="2021년 12월 기준" />
-      <span>2021년 12월 기준</span>
+      <img
+        className="content-logo-img"
+        src={TRIPLE_TROPHY}
+        alt="2021년 12월 기준"
+      />
+      <span className="content-text">2021년 12월 기준</span>
     </ContentLogoWrapper>
   )
 }
