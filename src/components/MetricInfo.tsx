@@ -37,7 +37,8 @@ function MetricInfo() {
   const travelerRef = useEaseOutNumber(700)
   const reviewRef = useEaseOutNumber(100)
   const scheduleRef = useEaseOutNumber(470)
-  const isFadeInEnd = useTimeout(900)
+
+  const isFadeInEnd = useTimeout(800)
 
   return (
     <MetricInfoWrapper className={isFadeInEnd ? '' : 'hide'}>

@@ -9,10 +9,8 @@ const ContentLogoWrapper = styled.div`
   height: 338px;
   position: relative;
   animation: ${fadeIn} 0.7s linear;
-  & {
-    .hide {
-      opacity: 1;
-    }
+  &.hide {
+    opacity: 0;
   }
 
   .content-logo-img {
@@ -30,7 +28,7 @@ const ContentLogoWrapper = styled.div`
 `
 
 function ContentLogo() {
-  const isFadeInEnd = useTimeout(900)
+  const isFadeInEnd = useTimeout(700)
 
   return (
     <ContentLogoWrapper className={isFadeInEnd ? '' : 'hide'}>
