@@ -23,7 +23,8 @@ const RightSideWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 100px;
+  padding-bottom: 85px;
+  padding-left: 60px;
 `
 
 function App() {
