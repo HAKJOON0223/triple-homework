@@ -16,11 +16,7 @@ const MetricInfoWrapper = styled.div`
   }
 `
 
-interface TextWrapperProps {
-  val?: number
-}
-
-const TextWrapper = styled.div<TextWrapperProps>`
+const TextWrapper = styled.div`
   display: flex;
   margin-bottom: 20px;
   .metric-text {
