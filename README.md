@@ -46,8 +46,11 @@ npm start
 │   │   └── triple2x.png
 │   ├── index.css
 │   ├── index.tsx
+│   ├── modules                      
+│   │   └── styled-components.d.ts
 │   ├── react-app-env.d.ts
 │   └── style                        // 전역 스타일(reset포함)
 │       └── global-style.ts
+│       └── theme.ts
 └── tsconfig.json
 ```
