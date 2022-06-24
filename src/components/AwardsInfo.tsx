@@ -28,7 +28,7 @@ const AwardsDescription = styled.div`
     margin-left: 5px;
     line-height: 1.5;
     flex-shrink: 0;
-    color: #3a3a3acc;
+    color: ${({ theme }) => theme.text.awardsInfo};
     font-weight: bold;
     font-size: 14px;
   }

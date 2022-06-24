@@ -22,11 +22,11 @@ const TextWrapper = styled.div`
   .metric-text {
     font-size: 36px;
     font-weight: bold;
-    color: #3a3a3a;
+    color: ${({ theme }) => theme.text.metricInfo};
   }
   .normal-text {
     font-size: 36px;
-    color: #3a3a3a;
+    color: ${({ theme }) => theme.text.metricInfo};
   }
 `
 function MetricInfo() {

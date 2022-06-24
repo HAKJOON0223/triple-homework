@@ -1,9 +1,10 @@
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
 import AwardsInfo from './components/AwardsInfo'
 import ContentLogo from './components/ContentLogo'
 import MetricInfo from './components/MetricInfo'
 import { GlobalStyle } from './style/global-style'
+import { theme } from './style/theme'
 
 const MainWrapper = styled.main`
   width: 100vw;
@@ -29,15 +30,17 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <MainWrapper>
-        <SectionWrapper>
-          <ContentLogo />
-          <RightSideWrapper>
-            <MetricInfo />
-            <AwardsInfo />
-          </RightSideWrapper>
-        </SectionWrapper>
-      </MainWrapper>
+      <ThemeProvider theme={theme}>
+        <MainWrapper>
+          <SectionWrapper>
+            <ContentLogo />
+            <RightSideWrapper>
+              <MetricInfo />
+              <AwardsInfo />
+            </RightSideWrapper>
+          </SectionWrapper>
+        </MainWrapper>
+      </ThemeProvider>
     </>
   )
 }
