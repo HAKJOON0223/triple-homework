@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react'
 
-// 60FPS로 동작하기 위해 1초를 60으로 나눔.
-const increasePerFrame = Math.floor(1000 / 60)
 // 2초동안 동작.
 const duration = 2000
 
@@ -12,36 +10,32 @@ function useEaseOutNumber(endNum: number) {
 
   // ease-out 그래프를 그려주는 계산식 함수.
   const easeOutQuad = (
-    percent: number,
+    progress: number,
     start: number,
     end: number,
     duration: number,
   ) => {
-    return Math.round(-end * (percent /= duration) * (percent - 2) + start)
+    return Math.round(-end * (progress /= duration) * (progress - 2) + start)
   }
 
   useEffect(() => {
-    let cnt = 0
-    const interval = setInterval(() => {
-      if (ref?.current?.innerText) {
-        // ease-out 그래프를 그려주는 계산식 함수.
-        const currText = easeOutQuad(
-          (cnt += increasePerFrame),
-          0,
-          endNum,
-          duration,
-        )
-        // 현재 표시할 값이 endNum보다 크다면, endNum으로 수정. Interval종료.
-        if (currText >= endNum) {
-          ref.current.innerText = `${endNum}`
-          clearInterval(interval)
-        } else {
-          ref.current.innerText = `${currText}`
-        }
-      }
-    }, increasePerFrame)
+    const startTime = Date.now()
 
-    return () => clearInterval(interval)
+    function easeOutQuadAnimation() {
+      if (!ref?.current?.innerText) {
+        return
+      }
+      const currText = easeOutQuad(Date.now() - startTime, 0, endNum, duration)
+
+      if (currText >= endNum) {
+        ref.current.innerText = `${endNum}`
+      } else {
+        ref.current.innerText = `${currText}`
+        window.requestAnimationFrame(easeOutQuadAnimation)
+      }
+    }
+
+    window.requestAnimationFrame(easeOutQuadAnimation)
   }, [endNum])
 
   return ref
