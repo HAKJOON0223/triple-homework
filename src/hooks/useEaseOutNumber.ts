@@ -23,14 +23,12 @@ function useEaseOutNumber(endNum: number) {
       if (!ref?.current?.innerText) {
         return
       }
-      const currText = easeOutQuad(passedTime, 0, endNum, duration)
-
       if (passedTime >= duration) {
         ref.current.innerText = `${endNum}`
-      } else {
-        ref.current.innerText = `${currText}`
-        window.requestAnimationFrame(easeOutQuadAnimation)
+        return
       }
+      ref.current.innerText = `${easeOutQuad(passedTime, 0, endNum, duration)}`
+      window.requestAnimationFrame(easeOutQuadAnimation)
     }
 
     window.requestAnimationFrame(easeOutQuadAnimation)
