@@ -19,15 +19,13 @@ function useEaseOutNumber(endNum: number) {
   }
 
   useEffect(() => {
-    const startTime = Date.now()
-
-    function easeOutQuadAnimation() {
+    function easeOutQuadAnimation(passedTime: number) {
       if (!ref?.current?.innerText) {
         return
       }
-      const currText = easeOutQuad(Date.now() - startTime, 0, endNum, duration)
+      const currText = easeOutQuad(passedTime, 0, endNum, duration)
 
-      if (currText >= endNum) {
+      if (passedTime >= duration) {
         ref.current.innerText = `${endNum}`
       } else {
         ref.current.innerText = `${currText}`
