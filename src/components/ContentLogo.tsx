@@ -1,7 +1,7 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import { fadeIn } from '../common/FadeIn'
-import useTimeout from '../hooks/useTimeout'
 import { TRIPLE_TROPHY } from '../images'
 
 const ContentLogoWrapper = styled.div`
@@ -28,10 +28,17 @@ const ContentLogoWrapper = styled.div`
 `
 
 function ContentLogo() {
-  const isFadeInEnd = useTimeout(700)
+  const [isAnimationStarted, setIsAnimationStarted] = useState(false)
+
+  const handleAnimationStart = () => {
+    setIsAnimationStarted(true)
+  }
 
   return (
-    <ContentLogoWrapper className={isFadeInEnd ? '' : 'hide'}>
+    <ContentLogoWrapper
+      onAnimationStart={handleAnimationStart}
+      className={isAnimationStarted ? '' : 'hide'}
+    >
       <img
         className="content-logo-img"
         src={TRIPLE_TROPHY}

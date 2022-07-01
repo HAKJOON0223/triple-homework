@@ -1,8 +1,8 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import { fadeIn } from '../common/FadeIn'
 import useEaseOutNumber from '../hooks/useEaseOutNumber'
-import useTimeout from '../hooks/useTimeout'
 
 const MetricInfoWrapper = styled.div`
   display: flex;
@@ -34,10 +34,17 @@ function MetricInfo() {
   const reviewRef = useEaseOutNumber(100)
   const scheduleRef = useEaseOutNumber(470)
 
-  const isFadeInEnd = useTimeout(800)
+  const [isAnimationStarted, setIsAnimationStarted] = useState(false)
+
+  const handleAnimationStart = () => {
+    setIsAnimationStarted(true)
+  }
 
   return (
-    <MetricInfoWrapper className={isFadeInEnd ? '' : 'hide'}>
+    <MetricInfoWrapper
+      onAnimationStart={handleAnimationStart}
+      className={isAnimationStarted ? '' : 'hide'}
+    >
       <TextWrapper>
         <span ref={travelerRef} className="metric-text">
           0

@@ -1,7 +1,7 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import { fadeIn } from '../common/FadeIn'
-import useTimeout from '../hooks/useTimeout'
 import { APPSTORE_BADGE, PLAYSTORE_BADGE } from '../images'
 
 const AwardsInfoWrapper = styled.div`
@@ -35,10 +35,17 @@ const AwardsDescription = styled.div`
 `
 
 function AwardsInfo() {
-  const isFadeInEnd = useTimeout(900)
+  const [isAnimationStarted, setIsAnimationStarted] = useState(false)
+
+  const handleAnimationStart = () => {
+    setIsAnimationStarted(true)
+  }
 
   return (
-    <AwardsInfoWrapper className={isFadeInEnd ? '' : 'hide'}>
+    <AwardsInfoWrapper
+      onAnimationStart={handleAnimationStart}
+      className={isAnimationStarted ? '' : 'hide'}
+    >
       <AwardsDescription>
         <img
           className="awards-badge"
